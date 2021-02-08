@@ -1,0 +1,19 @@
+{
+    "name": "Github text diff",
+    "version": "0.0.1",
+    "description": "Google Chrome extension sample to show the text diff of .RTF files on GitHub",
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": true
+    },
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "manifest_version": 2,
+    "permissions": ["storage"],
+    "content_security_policy": "script-src 'self' 'unsafe-eval' 'sha256-ma/c5s3JzLdS/qMN/XLRdMEvcz08E63AgVQC28OopJQ='; object-src 'self'",
+    "content_scripts": [{
+        "matches": ["*://*.github.com/*/commit/*"],
+        "js": ["content.bundle.js"]
+    }]
+}
